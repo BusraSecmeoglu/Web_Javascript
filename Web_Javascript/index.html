@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script>
+        function UyariVer() {
+            //messagebox benzeri
+            alert("Uyarı!");
+        }
+        //javascriptte body içerisindeki elemanlar document nesnesinin içindedir.
+        //1.yol
+        window.onload = function () {
+            //body içindeki butun controlleri içinde tutuyor
+            document.getElementById("btnEkle").onclick = function ekle() {
+                // var metin = document.getElementById("txtIsim").value;
+                var txtIsim = document.getElementById("txtIsim");                
+                var p = txtIsim.value + " " + "<br />"
+                document.getElementById("liste").innerHTML += p;
+                txtIsim.value = "";
+                txtIsim.focus();
+
+            }
+        }
+    </script>
+    <style>
+        #liste {
+            width: 150px;
+            height: 400px;
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="Uyarı ver" onclick="UyariVer()" />
+    Adı: <input type="Text" id="txtIsim" />
+    <input type="button" value="Ekle" id="btnEkle" />
+    <div id="liste" />
+    <!--script kodları body elemanları yüklendikten sonra istiyorsanız ve kodların head bölümğnde kalmasını istiyorsanız, 2.yol olarak kodalrı window onloadun içine yazabilirsiniz-->
+    <!--body içindeki butun controlleri içinde tutuyor-->
+    <!--1.yol-->
+    <!--Diğer bir çözğm kodları bosy ölümünün en altına taşıyabilirsiniz.Html sayfaları yukarıdan aşağıya doğru yüklendiği için bu iki yöntem çözüm olarak sunulabilir  -->
+    <!--<script>
+    document.getElementById("btnEkle").onclick = function ekle() {
+    var metin = document.getElementById("txtIsim").value;
+    document.getElementById("liste").innerHTML = metin;
+
+    }
+    </script>-->
+</body>
+</html>
